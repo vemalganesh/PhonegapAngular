@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app lang="en">
+<body>
+<section class="section container-fluid">
+  <h1 class="page-header">Add a Parts changed or repaired </h1>
+</section>
+<div class="content">
+<form class="contentform" name="frm" ng-submit="addPartsChanged()" novalidate>
+<div class="form-group">
+  <label  for="partsinfo" class="">Information on Vehicle</label>
+  <input placeholder="e.g. Engine has been repaired, Engine has been replaced" name="partsinfo" id="partsinfo" ng-model="newpart.partsinfo"  class="form-control" >
+<button class="btn btn-primary" style="color: rgb(243, 243, 243);" ng-disabled="frm.$invalid">Add Parts Information</button>
+</form>
+</div>
+<div class="panel-group" ui-shared-state="myAccordion" ui-default="2">
+    <div  class="panel panel-default ng-scope"  ng-repeat="Items in allParts | orderBy: '-model' | filter: search">
+    <div  class="panel-title ng-binding">
+      <h4 class="panel-title ng-binding"></h4>
+    </div>
+    <div class="ng-scope" ng-show="Items.Vecid == CurrentVecId">
+      <div class="panel-body ng-binding">
+        {{Items.partsInfo}}
+        <div class="remove" ng-click="removePart(Items)"><button>Remove</button></div>
+      </div>
+    </div>
+    </div>
+   </div>
+
+</body>
+</html>

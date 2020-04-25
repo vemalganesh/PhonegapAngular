@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vechile Browsing</title>
+    <link rel="stylesheet" href="src/css/style.css" >
+</head>
+<body> 
+  <div class="section container-fluid">
+    <input ng-model="search" type="search" class="form-control scrollable-header needsclick ng-scope" placeholder="Search..">
+    <div class="panel-group" ui-shared-state="myAccordion" ui-default="2">
+    <div  class="panel panel-default ng-scope"  ng-repeat="Items in vechicles | orderBy: '-model' | filter: search">
+    <div  class="panel-title ng-binding">
+      <h4 class="panel-title ng-binding"> Model : {{Items.model}}</h4>
+    </div>
+    <div class="ng-scope">
+      <div class="panel-body ng-binding" >
+        Totaldistance : {{Items.Totaldistance}} <br> Data Logged Time: {{Items.logDateTime}} 
+        <br> Total Price: {{Items.TotalPrice | currency }} <br> Repaired Shop Name: {{Items.RepairShop}}
+        <div class="remove" ng-click="removeVehicle(Items)"><button>Remove</button></div>
+        <div class="remove" ng-click="loadParts(Items)"><button ><a href="#!/parts">Change parts</a></button></div>
+      </div>
+    </div>
+    </div>
+   </div>
+ </section>
+</body>
+</html>

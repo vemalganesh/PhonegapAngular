@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app lang="en">
+<body>
+<section class="section container-fluid">
+  <h1 class="page-header">Insert Car Information</h1>
+</section>
+<div class="content">
+<form class="contentform" name="frm" ng-submit="addVehicle()" novalidate>
+<div class="form-group">
+  <label  for="vehiclemodel" class="">Vehicle Model </label>
+  <input placeholder="e.g. BMW, Honda and etc" name="vehiclemodel" id="vehiclemodel" ng-model="newvehicle.vehiclemodel"  class="form-control" required>
+  <div   class="alert alert-danger" ng-show="frm.vehiclemodel.$touched && frm.vehiclemodel.$error.required ">
+    Model is required
+  </div>
+</div>
+
+<div class="form-group">
+  <label  for="totalDistance" class="">Total Distance</label>
+  <input placeholder="KM(e.g. 10030.)" name="totalDistance" type="number" id="totalDistance" ng-model="newvehicle.totalDistance" class="form-control" required>
+  <div class="alert alert-danger" ng-show="frm.totalDistance.$touched && frm.totalDistance.$error.required ">
+    Total Distance is required
+  </div>
+</div>
+
+<div class="form-group">
+  <label  for="logdatetime" class="">Date and Time</label>
+  <input placeholder="yyyy/mm/dd" name="logdatetime" type="datetime" id="logdatetime" ng-model="newvehicle.logdatetime"  class="form-control" required>
+  <div class="alert alert-danger" ng-show="frm.logdatetime.$touched && frm.logdatetime.$error.required ">
+    Date and Time is required
+  </div>
+
+  <div class="form-group">
+    <label  for="totalPrice" class="">Total Price</label>
+    <input placeholder="RM" name="totalPrice" type="number" id="totalPrice" ng-model="newvehicle.totalPrice" class="form-control" required>
+    <div class="alert alert-danger" ng-show="frm.totalPrice.$touched && frm.totalPrice.$error.required ">
+      Total Price is required
+    </div>
+</div>
+
+<div class="form-group">
+  <label  for="PartsChanged" class="" >Parts Changed or repaired</label>
+  <input placeholder="e.g. Engine,Break and etc" name="PartsChanged" type="text" id="PartsChanged" ng-model="newvehicle.PartsChanged"  class="form-control">
+</div>
+
+<div class="form-group">
+  <label  for="repairShop" class="">Repair Shop</label>
+  <input placeholder="e.g. TanJong,Honda and etc" name="repairShop" type="text" id="repairShop" ng-model="newvehicle.repairShop"  class="form-control" required>
+  <div class="alert alert-danger" ng-show="frm.repairShop.$touched && frm.repairShop.$error.required ">
+    Repair Shop is required
+  </div>
+</div>
+<button class="btn btn-primary" style="color: rgb(243, 243, 243);" ng-disabled="frm.$invalid">Add Vehicle Information</button>
+</form>
+</div>
+
+</body>
+</html>
